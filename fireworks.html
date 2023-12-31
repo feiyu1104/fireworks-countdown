@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>2024跨年烟花</title>
+  <style>
+    body {
+      background-color: black;
+      color: white;
+      text-align: center;
+      font-size: 40px;
+      padding-top: 100px;
+    }
+    #countdown {
+      font-size: 60px;
+    }
+  </style>
+  <script>
+    function countdown() {
+      var countDownDate = new Date("Jan 1, 2024 00:00:00").getTime();
+      var x = setInterval(function() {
+        var now = new Date().getTime();
+        var distance = countDownDate - now;
+        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        document.getElementById("countdown").innerHTML = days + "d " + hours + "h "
+        + minutes + "m " + seconds + "s ";
+        if (distance < 0) {
+          clearInterval(x);
+          document.getElementById("countdown").innerHTML = "Happy New Year!";
+          // Trigger fireworks animation
+          triggerFireworks();
+        }
+      }, 1000);
+    }
+
+    function triggerFireworks() {
+      // Add code to trigger fireworks animation
+      // When countdown reaches 0, display the name and birthday message
+      document.getElementById("fireworks").innerHTML = "Happy Birthday!";
+    }
+  </script>
+</head>
+<body onload="countdown()">
+  <div id="countdown"></div>
+  <div id="fireworks"></div>
+</body>
+</html>
